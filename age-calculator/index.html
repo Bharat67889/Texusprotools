@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate your exact age in years, months, and days instantly with our modern age calculator.">
+  <meta name="keywords" content="age calculator, DOB calculator, exact age, calculate age">
+  <title>Modern Age Calculator</title>
+  
+  <style>
+    /* Reset & Base */
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; transition: background 0.3s, color 0.3s; }
+
+    /* Light & Dark Mode */
+    body.light { background: #f5f7fa; color: #1a1a1a; }
+    body.dark { background: #121212; color: #f5f7fa; }
+
+    header { width: 100%; padding: 2rem 1rem; text-align: center; }
+    header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1rem; color: inherit; opacity: 0.7; }
+
+    main { max-width: 500px; width: 90%; margin: 2rem auto; padding: 2rem; border-radius: 15px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: background 0.3s; }
+
+    label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+    input[type="date"] { width: 100%; padding: 0.8rem 1rem; margin-bottom: 1.5rem; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem; transition: border 0.3s; }
+    input[type="date"]:focus { border-color: #4f46e5; outline: none; }
+
+    button { padding: 0.8rem 1.5rem; border: none; border-radius: 10px; background: #4f46e5; color: #fff; font-size: 1rem; cursor: pointer; transition: transform 0.2s, background 0.3s; }
+    button:hover { transform: translateY(-3px); background: #6366f1; }
+
+    #result { margin-top: 1.5rem; font-size: 1.2rem; font-weight: 500; text-align: center; min-height: 2em; }
+
+    /* FAQ */
+    .faq { margin-top: 3rem; }
+    .faq h2 { margin-bottom: 1rem; text-align: center; }
+    .faq-item { margin-bottom: 1rem; border-radius: 10px; overflow: hidden; background: rgba(255,255,255,0.05); transition: background 0.3s; }
+    .faq-item button { width: 100%; text-align: left; padding: 1rem; background: none; color: inherit; border: none; font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-item button:hover { background: rgba(255,255,255,0.1); }
+    .faq-content { max-height: 0; overflow: hidden; padding: 0 1rem; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-content.open { max-height: 200px; padding: 1rem; }
+
+    /* Toggle Mode */
+    .mode-toggle { position: fixed; top: 1rem; right: 1rem; padding: 0.5rem 1rem; border: none; border-radius: 10px; background: #4f46e5; color: #fff; cursor: pointer; transition: background 0.3s; }
+    .mode-toggle:hover { background: #6366f1; }
+
+    /* Responsive */
+    @media(max-width: 600px){
+      main { padding: 1.5rem; }
+      button, .mode-toggle { width: 100%; }
+    }
+  </style>
+</head>
+<body class="light">
+  <header>
+    <h1>Modern Age Calculator</h1>
+    <p>Find out your exact age in years, months, and days instantly!</p>
+  </header>
+
+  <button class="mode-toggle" onclick="toggleMode()">Switch Mode</button>
+
+  <main>
+    <label for="dob">Select Your Date of Birth:</label>
+    <input type="date" id="dob" max="">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div id="result"></div>
+
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button onclick="toggleFAQ(this)">How accurate is the calculation? <span>+</span></button>
+        <div class="faq-content">It calculates your exact age in years, months, and days based on your date of birth and the current date.</div>
+      </div>
+      <div class="faq-item">
+        <button onclick="toggleFAQ(this)">Can I use it on mobile devices? <span>+</span></button>
+        <div class="faq-content">Yes! The design is fully responsive and works seamlessly on phones and tablets.</div>
+      </div>
+      <div class="faq-item">
+        <button onclick="toggleFAQ(this)">Is my data stored? <span>+</span></button>
+        <div class="faq-content">No. This calculator runs entirely in your browser, so your data never leaves your device.</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Set max date to today
+    document.getElementById('dob').max = new Date().toISOString().split('T')[0];
+
+    function calculateAge() {
+      const dobInput = document.getElementById('dob').value;
+      const resultDiv = document.getElementById('result');
+      if (!dobInput) {
+        resultDiv.textContent = "Please select your date of birth.";
+        return;
+      }
+
+      const dob = new Date(dobInput);
+      const today = new Date();
+
+      if (dob > today) {
+        resultDiv.textContent = "Date of birth cannot be in the future.";
+        return;
+      }
+
+      let years = today.getFullYear() - dob.getFullYear();
+      let months = today.getMonth() - dob.getMonth();
+      let days = today.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months -= 1;
+        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+
+      if (months < 0) {
+        years -= 1;
+        months += 12;
+      }
+
+      resultDiv.textContent = `You are ${years} years, ${months} months, and ${days} days old.`;
+    }
+
+    // Toggle FAQ
+    function toggleFAQ(button) {
+      const content = button.nextElementSibling;
+      content.classList.toggle('open');
+      button.querySelector('span').textContent = content.classList.contains('open') ? '−' : '+';
+    }
+
+    // Toggle Dark/Light Mode
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>
