@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Advanced Age Calculator – Exact Age in Years, Months, Days & Time</title>
+<title>Advanced Age Calculator – Exact Age in Years, Months, Days, Hours, Minutes & Seconds</title>
 
-<meta name="description" content="Calculate your exact age in years, months, days, hours, minutes and seconds instantly using this free online age calculator tool.">
-<meta name="keywords" content="age calculator, exact age calculator, DOB calculator, birthday calculator, calculate age online">
+<meta name="description" content="Calculate your exact age in years, months, days, hours, minutes and seconds with this advanced online age calculator tool.">
+<meta name="keywords" content="age calculator, exact age calculator, DOB calculator, birthday age calculator">
 
 <link rel="icon" href="/favicon.png" type="image/png">
 
@@ -66,7 +66,6 @@ input{
   border:none;
   border-radius:8px;
   margin-bottom:10px;
-  outline:none;
 }
 
 button{
@@ -87,40 +86,24 @@ button:hover{
 
 #result{
   margin-top:15px;
-  text-align:center;
-  font-size:16px;
-  line-height:1.6;
-}
-
-.faq{
-  margin-top:25px;
-}
-
-.faq h3{
-  text-align:center;
-  margin-bottom:10px;
-}
-
-.faq-item{
-  margin-bottom:10px;
   background:#1f2937;
-  border-radius:10px;
-  overflow:hidden;
+  padding:15px;
+  border-radius:12px;
+  line-height:1.8;
+  font-size:15px;
 }
 
-.faq-item button{
-  background:none;
-  width:100%;
-  text-align:left;
-  padding:12px;
-  font-size:14px;
+/* SEO Content */
+.content{
+  max-width:800px;
+  margin-top:30px;
+  line-height:1.7;
+  opacity:0.85;
 }
 
-.faq-content{
-  display:none;
-  padding:10px;
-  font-size:14px;
-  opacity:0.8;
+.content h2{
+  margin-top:20px;
+  margin-bottom:10px;
 }
 
 @media(max-width:600px){
@@ -135,12 +118,12 @@ button:hover{
 
 <header>
 <h1>Advanced Age Calculator</h1>
-<p>Find your exact age in years, months, days & time</p>
+<p>Get exact age in years, months, days, hours, minutes & seconds</p>
 </header>
 
 <div class="container">
 
-<h3>Birth Date</h3>
+<h3>Enter Birth Details</h3>
 
 <div class="row">
   <input type="number" id="day" placeholder="Day">
@@ -148,7 +131,7 @@ button:hover{
   <input type="number" id="year" placeholder="Year">
 </div>
 
-<h3>Optional Time (not required)</h3>
+<h3>Optional Time</h3>
 
 <div class="row">
   <input type="number" id="hour" placeholder="Hour">
@@ -156,66 +139,53 @@ button:hover{
   <input type="number" id="second" placeholder="Second">
 </div>
 
-<button onclick="calcAge()">Calculate Age</button>
+<button onclick="calculateAge()">Calculate Age</button>
 
 <div id="result"></div>
-
-<!-- FAQ -->
-<div class="faq">
-<h3>FAQ</h3>
-
-<div class="faq-item">
-<button onclick="toggleFAQ(this)">How accurate is this calculator?</button>
-<div class="faq-content">It calculates exact age based on current system date including optional time.</div>
-</div>
-
-<div class="faq-item">
-<button onclick="toggleFAQ(this)">Do I need to enter time?</button>
-<div class="faq-content">No, time is optional. If not provided, age is shown in years, months and days only.</div>
-</div>
-
-<div class="faq-item">
-<button onclick="toggleFAQ(this)">Is my data stored?</button>
-<div class="faq-content">No data is stored. Everything runs inside your browser.</div>
-</div>
-
-</div>
 
 </div>
 
 <!-- SEO CONTENT -->
-<div style="max-width:700px;margin-top:30px;line-height:1.7;font-size:14px;opacity:0.85">
+<div class="content">
 
-<h2>About Advanced Age Calculator Tool</h2>
+<h2>About This Age Calculator Tool</h2>
 
 <p>
-The Advanced Age Calculator is a free online tool that helps users calculate their exact age in years, months, days, hours, minutes, and seconds. Unlike traditional calculators that only show age in years, this tool provides highly precise results based on both date and optional time of birth.
+This advanced age calculator is designed to calculate your exact age in a highly precise format including years, months, days, hours, minutes, and seconds. Unlike basic calculators that only show approximate age, this tool provides a full breakdown of your life duration.
 </p>
 
-<p>
-This tool is designed for students, professionals, and anyone who needs quick and accurate age calculation for forms, exams, job applications, or personal curiosity. Manual age calculation is often confusing due to leap years and different month lengths, but this tool handles everything automatically.
-</p>
+<h2>Why This Tool is Useful</h2>
 
 <p>
-Users simply need to enter their birth day, month, and year. If they want more detailed results, they can also enter the exact time of birth. If time is not entered, the tool will still calculate accurate age up to days.
+Many forms, government documents, and applications require exact age details. Manual calculation often leads to errors due to leap years and varying month lengths. This tool removes all complexity and gives instant accurate results.
 </p>
 
-<p>
-The interface is fully mobile responsive and optimized for all devices including smartphones, tablets, and desktops. It loads fast and works instantly without requiring any login or data storage.
-</p>
+<h2>How It Works</h2>
 
 <p>
-From an SEO perspective, this page is optimized with proper meta tags, structured layout, and keyword targeting such as “age calculator,” “exact age calculator,” and “DOB calculator online.” This helps improve ranking on Google search results and increases organic traffic.
+You simply enter your date of birth including day, month, and year. Optionally, you can also add your exact birth time for even more accurate results. If time is not entered, the tool automatically calculates age up to days only.
 </p>
 
+<h2>Features</h2>
+
+<ul>
+<li>✔ Exact age calculation in real time</li>
+<li>✔ Years, months, days, hours, minutes, seconds</li>
+<li>✔ Mobile responsive design</li>
+<li>✔ Fast and lightweight tool</li>
+<li>✔ No data storage (fully private)</li>
+</ul>
+
+<h2>SEO Optimization</h2>
+
 <p>
-Overall, this tool provides a simple, fast, and accurate solution for calculating age with modern UI and clean design. It is also suitable for integration into multi-tool websites or utility platforms.
+This page is optimized for search engines using targeted keywords like "age calculator", "exact age calculator", "DOB calculator", and "calculate age online". The structure is designed to improve ranking and increase organic traffic from Google search results.
 </p>
 
 </div>
 
 <script>
-function calcAge(){
+function calculateAge(){
   let d = parseInt(document.getElementById("day").value);
   let m = parseInt(document.getElementById("month").value);
   let y = parseInt(document.getElementById("year").value);
@@ -233,33 +203,30 @@ function calcAge(){
   let now = new Date();
 
   if(dob > now){
-    document.getElementById("result").innerHTML = "Invalid date!";
+    document.getElementById("result").innerHTML = "Invalid birth date!";
     return;
   }
 
   let diff = now - dob;
 
-  let seconds = Math.floor(diff/1000);
-  let minutes = Math.floor(seconds/60);
-  let hours = Math.floor(minutes/60);
-  let days = Math.floor(hours/24);
+  let totalSeconds = Math.floor(diff / 1000);
 
-  let years = Math.floor(days/365);
-  let months = Math.floor((days % 365)/30);
-  let remDays = (days % 365) % 30;
+  let seconds = totalSeconds % 60;
+  let minutes = Math.floor(totalSeconds / 60) % 60;
+  let hours = Math.floor(totalSeconds / 3600) % 24;
 
-  let output = `You are ${years} years, ${months} months, ${remDays} days old.`;
+  let totalDays = Math.floor(totalSeconds / 86400);
 
-  if(document.getElementById("hour").value || document.getElementById("minute").value || document.getElementById("second").value){
-    output += `<br><br>Total: ${hours} hours | ${minutes} minutes | ${seconds} seconds`;
-  }
+  let years = Math.floor(totalDays / 365.2425);
 
-  document.getElementById("result").innerHTML = output;
-}
+  let remainingDaysAfterYears = Math.floor(totalDays - years * 365.2425);
 
-function toggleFAQ(btn){
-  let content = btn.nextElementSibling;
-  content.style.display = content.style.display === "block" ? "none" : "block";
+  let months = Math.floor(remainingDaysAfterYears / 30.44);
+  let days = Math.floor(remainingDaysAfterYears % 30.44);
+
+  document.getElementById("result").innerHTML =
+  `You are <b>${years}</b> years, <b>${months}</b> months, <b>${days}</b> days,<br>
+  <b>${hours}</b> hours, <b>${minutes}</b> minutes, <b>${seconds}</b> seconds old.`;
 }
 </script>
 
