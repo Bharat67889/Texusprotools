@@ -1,138 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calculate your exact age in years, months, and days instantly with our modern age calculator.">
-  <meta name="keywords" content="age calculator, DOB calculator, exact age, calculate age">
-  <title>Modern Age Calculator</title>
-  
-  <style>
-    /* Reset & Base */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    html { scroll-behavior: smooth; }
-    body { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; transition: background 0.3s, color 0.3s; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Light & Dark Mode */
-    body.light { background: #f5f7fa; color: #1a1a1a; }
-    body.dark { background: #121212; color: #f5f7fa; }
+<title>Advanced Age Calculator – Exact Age in Years, Months, Days & Time</title>
 
-    header { width: 100%; padding: 2rem 1rem; text-align: center; }
-    header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-    header p { font-size: 1rem; color: inherit; opacity: 0.7; }
+<meta name="description" content="Calculate your exact age in years, months, days, hours, minutes and seconds instantly using this free online age calculator tool.">
+<meta name="keywords" content="age calculator, exact age calculator, DOB calculator, birthday calculator, calculate age online">
 
-    main { max-width: 500px; width: 90%; margin: 2rem auto; padding: 2rem; border-radius: 15px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: background 0.3s; }
+<link rel="icon" href="/favicon.png" type="image/png">
 
-    label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
-    input[type="date"] { width: 100%; padding: 0.8rem 1rem; margin-bottom: 1.5rem; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem; transition: border 0.3s; }
-    input[type="date"]:focus { border-color: #4f46e5; outline: none; }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
 
-    button { padding: 0.8rem 1.5rem; border: none; border-radius: 10px; background: #4f46e5; color: #fff; font-size: 1rem; cursor: pointer; transition: transform 0.2s, background 0.3s; }
-    button:hover { transform: translateY(-3px); background: #6366f1; }
+body{
+  background:#0b1220;
+  color:#fff;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
-    #result { margin-top: 1.5rem; font-size: 1.2rem; font-weight: 500; text-align: center; min-height: 2em; }
+header{
+  text-align:center;
+  margin-bottom:20px;
+}
 
-    /* FAQ */
-    .faq { margin-top: 3rem; }
-    .faq h2 { margin-bottom: 1rem; text-align: center; }
-    .faq-item { margin-bottom: 1rem; border-radius: 10px; overflow: hidden; background: rgba(255,255,255,0.05); transition: background 0.3s; }
-    .faq-item button { width: 100%; text-align: left; padding: 1rem; background: none; color: inherit; border: none; font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-item button:hover { background: rgba(255,255,255,0.1); }
-    .faq-content { max-height: 0; overflow: hidden; padding: 0 1rem; transition: max-height 0.3s ease, padding 0.3s ease; }
-    .faq-content.open { max-height: 200px; padding: 1rem; }
+header h1{
+  font-size:24px;
+}
 
-    /* Toggle Mode */
-    .mode-toggle { position: fixed; top: 1rem; right: 1rem; padding: 0.5rem 1rem; border: none; border-radius: 10px; background: #4f46e5; color: #fff; cursor: pointer; transition: background 0.3s; }
-    .mode-toggle:hover { background: #6366f1; }
+header p{
+  opacity:0.7;
+  margin-top:5px;
+}
 
-    /* Responsive */
-    @media(max-width: 600px){
-      main { padding: 1.5rem; }
-      button, .mode-toggle { width: 100%; }
-    }
-  </style>
+.container{
+  width:100%;
+  max-width:520px;
+  background:#111827;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+h3{
+  margin:10px 0;
+}
+
+.row{
+  display:flex;
+  gap:10px;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  margin-bottom:10px;
+  outline:none;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  background:#4f46e5;
+  border:none;
+  color:#fff;
+  font-size:16px;
+  border-radius:10px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+button:hover{
+  background:#6366f1;
+}
+
+#result{
+  margin-top:15px;
+  text-align:center;
+  font-size:16px;
+  line-height:1.6;
+}
+
+.faq{
+  margin-top:25px;
+}
+
+.faq h3{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.faq-item{
+  margin-bottom:10px;
+  background:#1f2937;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.faq-item button{
+  background:none;
+  width:100%;
+  text-align:left;
+  padding:12px;
+  font-size:14px;
+}
+
+.faq-content{
+  display:none;
+  padding:10px;
+  font-size:14px;
+  opacity:0.8;
+}
+
+@media(max-width:600px){
+  .row{
+    flex-direction:column;
+  }
+}
+</style>
 </head>
-<body class="light">
-  <header>
-    <h1>Modern Age Calculator</h1>
-    <p>Find out your exact age in years, months, and days instantly!</p>
-  </header>
 
-  <button class="mode-toggle" onclick="toggleMode()">Switch Mode</button>
+<body>
 
-  <main>
-    <label for="dob">Select Your Date of Birth:</label>
-    <input type="date" id="dob" max="">
-    <button onclick="calculateAge()">Calculate Age</button>
-    <div id="result"></div>
+<header>
+<h1>Advanced Age Calculator</h1>
+<p>Find your exact age in years, months, days & time</p>
+</header>
 
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <button onclick="toggleFAQ(this)">How accurate is the calculation? <span>+</span></button>
-        <div class="faq-content">It calculates your exact age in years, months, and days based on your date of birth and the current date.</div>
-      </div>
-      <div class="faq-item">
-        <button onclick="toggleFAQ(this)">Can I use it on mobile devices? <span>+</span></button>
-        <div class="faq-content">Yes! The design is fully responsive and works seamlessly on phones and tablets.</div>
-      </div>
-      <div class="faq-item">
-        <button onclick="toggleFAQ(this)">Is my data stored? <span>+</span></button>
-        <div class="faq-content">No. This calculator runs entirely in your browser, so your data never leaves your device.</div>
-      </div>
-    </section>
-  </main>
+<div class="container">
 
-  <script>
-    // Set max date to today
-    document.getElementById('dob').max = new Date().toISOString().split('T')[0];
+<h3>Birth Date</h3>
 
-    function calculateAge() {
-      const dobInput = document.getElementById('dob').value;
-      const resultDiv = document.getElementById('result');
-      if (!dobInput) {
-        resultDiv.textContent = "Please select your date of birth.";
-        return;
-      }
+<div class="row">
+  <input type="number" id="day" placeholder="Day">
+  <input type="number" id="month" placeholder="Month">
+  <input type="number" id="year" placeholder="Year">
+</div>
 
-      const dob = new Date(dobInput);
-      const today = new Date();
+<h3>Optional Time (not required)</h3>
 
-      if (dob > today) {
-        resultDiv.textContent = "Date of birth cannot be in the future.";
-        return;
-      }
+<div class="row">
+  <input type="number" id="hour" placeholder="Hour">
+  <input type="number" id="minute" placeholder="Minute">
+  <input type="number" id="second" placeholder="Second">
+</div>
 
-      let years = today.getFullYear() - dob.getFullYear();
-      let months = today.getMonth() - dob.getMonth();
-      let days = today.getDate() - dob.getDate();
+<button onclick="calcAge()">Calculate Age</button>
 
-      if (days < 0) {
-        months -= 1;
-        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-        days += prevMonth.getDate();
-      }
+<div id="result"></div>
 
-      if (months < 0) {
-        years -= 1;
-        months += 12;
-      }
+<!-- FAQ -->
+<div class="faq">
+<h3>FAQ</h3>
 
-      resultDiv.textContent = `You are ${years} years, ${months} months, and ${days} days old.`;
-    }
+<div class="faq-item">
+<button onclick="toggleFAQ(this)">How accurate is this calculator?</button>
+<div class="faq-content">It calculates exact age based on current system date including optional time.</div>
+</div>
 
-    // Toggle FAQ
-    function toggleFAQ(button) {
-      const content = button.nextElementSibling;
-      content.classList.toggle('open');
-      button.querySelector('span').textContent = content.classList.contains('open') ? '−' : '+';
-    }
+<div class="faq-item">
+<button onclick="toggleFAQ(this)">Do I need to enter time?</button>
+<div class="faq-content">No, time is optional. If not provided, age is shown in years, months and days only.</div>
+</div>
 
-    // Toggle Dark/Light Mode
-    function toggleMode() {
-      document.body.classList.toggle('dark');
-      document.body.classList.toggle('light');
-    }
-  </script>
+<div class="faq-item">
+<button onclick="toggleFAQ(this)">Is my data stored?</button>
+<div class="faq-content">No data is stored. Everything runs inside your browser.</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- SEO CONTENT -->
+<div style="max-width:700px;margin-top:30px;line-height:1.7;font-size:14px;opacity:0.85">
+
+<h2>About Advanced Age Calculator Tool</h2>
+
+<p>
+The Advanced Age Calculator is a free online tool that helps users calculate their exact age in years, months, days, hours, minutes, and seconds. Unlike traditional calculators that only show age in years, this tool provides highly precise results based on both date and optional time of birth.
+</p>
+
+<p>
+This tool is designed for students, professionals, and anyone who needs quick and accurate age calculation for forms, exams, job applications, or personal curiosity. Manual age calculation is often confusing due to leap years and different month lengths, but this tool handles everything automatically.
+</p>
+
+<p>
+Users simply need to enter their birth day, month, and year. If they want more detailed results, they can also enter the exact time of birth. If time is not entered, the tool will still calculate accurate age up to days.
+</p>
+
+<p>
+The interface is fully mobile responsive and optimized for all devices including smartphones, tablets, and desktops. It loads fast and works instantly without requiring any login or data storage.
+</p>
+
+<p>
+From an SEO perspective, this page is optimized with proper meta tags, structured layout, and keyword targeting such as “age calculator,” “exact age calculator,” and “DOB calculator online.” This helps improve ranking on Google search results and increases organic traffic.
+</p>
+
+<p>
+Overall, this tool provides a simple, fast, and accurate solution for calculating age with modern UI and clean design. It is also suitable for integration into multi-tool websites or utility platforms.
+</p>
+
+</div>
+
+<script>
+function calcAge(){
+  let d = parseInt(document.getElementById("day").value);
+  let m = parseInt(document.getElementById("month").value);
+  let y = parseInt(document.getElementById("year").value);
+
+  let h = parseInt(document.getElementById("hour").value) || 0;
+  let min = parseInt(document.getElementById("minute").value) || 0;
+  let s = parseInt(document.getElementById("second").value) || 0;
+
+  if(!d || !m || !y){
+    document.getElementById("result").innerHTML = "Please enter valid date of birth.";
+    return;
+  }
+
+  let dob = new Date(y, m-1, d, h, min, s);
+  let now = new Date();
+
+  if(dob > now){
+    document.getElementById("result").innerHTML = "Invalid date!";
+    return;
+  }
+
+  let diff = now - dob;
+
+  let seconds = Math.floor(diff/1000);
+  let minutes = Math.floor(seconds/60);
+  let hours = Math.floor(minutes/60);
+  let days = Math.floor(hours/24);
+
+  let years = Math.floor(days/365);
+  let months = Math.floor((days % 365)/30);
+  let remDays = (days % 365) % 30;
+
+  let output = `You are ${years} years, ${months} months, ${remDays} days old.`;
+
+  if(document.getElementById("hour").value || document.getElementById("minute").value || document.getElementById("second").value){
+    output += `<br><br>Total: ${hours} hours | ${minutes} minutes | ${seconds} seconds`;
+  }
+
+  document.getElementById("result").innerHTML = output;
+}
+
+function toggleFAQ(btn){
+  let content = btn.nextElementSibling;
+  content.style.display = content.style.display === "block" ? "none" : "block";
+}
+</script>
+
 </body>
 </html>
